@@ -40,12 +40,17 @@ export const RecentOrders: React.FC = () => {
 
     return (
         <Card>
-
+            
             <Table
                 {...tableProps}
                 pagination={{ ...tableProps.pagination, simple: true }}
                 showHeader={false}
                 rowKey="id"
+                onRow={(record, rowIndex) => {
+                    return {
+                      onClick: (event) => {console.log(record)}, // click row
+                    };
+                  }}
             >
                 <Table.Column<IOrder>
                     key="avatar"
