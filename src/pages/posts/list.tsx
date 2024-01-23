@@ -1,10 +1,11 @@
 import { ICategory, IPost } from "../../interfaces"
-import { List, TagField, TextField, useTable } from "@refinedev/antd";
+import { List, TagField, TextField, useTable, FilterDropdown,useSelect } from "@refinedev/antd";
 import { useMany } from "@refinedev/core";
-import { Table } from "antd";
+import { Select, Table } from "antd";
 export const PostList: React.FC = () =>{
     const { tableProps } = useTable<IPost>();
     const categoryIds = tableProps?.dataSource?.map((item) => item.category.id) ?? [];
+    
     const{ data: categoriesData, isLoading } = useMany<ICategory>({
         resource:"categories",
         ids:categoryIds,
@@ -12,6 +13,11 @@ export const PostList: React.FC = () =>{
             enabled: categoryIds.length > 0,
         }
     });
+
+    const {selectProps: categorySelectedProperties} = useSelect<ICategory>({
+        resource:'categories'
+    })
+
 
 
     return (
@@ -32,11 +38,21 @@ export const PostList: React.FC = () =>{
                     title="category"
                     render={(value)=><TextField value={
                         categoriesData?.data.find((item) => item.id === value)?.title}/>}  
+                    filterDropdown={(props) =>(
+                        <FilterDropdown {...props}>
+                            <Select
+                                style={{minWidth:200}}
+                                mode="multiple"
+                                placeholder="Select Category"
+                                {...categorySelectedProperties}/>
+                        </FilterDropdown>
+                )}
                 />
                 <Table.Column
                     dataIndex="createdAt"
-                    title="createdAt"   
+                    title="createdAt" 
                 />
+                
             </Table>
         </div>
     );
