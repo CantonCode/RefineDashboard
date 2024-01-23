@@ -1,7 +1,7 @@
 import { ICategory, IPost } from "../../interfaces"
-import { List, TagField, TextField, useTable, FilterDropdown,useSelect } from "@refinedev/antd";
+import { List, TagField, TextField, useTable, FilterDropdown,useSelect, ShowButton } from "@refinedev/antd";
 import { useMany } from "@refinedev/core";
-import { Select, Table } from "antd";
+import { Select, Space, Table } from "antd";
 export const PostList: React.FC = () =>{
     const { tableProps } = useTable<IPost>();
     const categoryIds = tableProps?.dataSource?.map((item) => item.category.id) ?? [];
@@ -51,6 +51,18 @@ export const PostList: React.FC = () =>{
                 <Table.Column
                     dataIndex="createdAt"
                     title="createdAt" 
+                />
+                <Table.Column
+                    title="Actions"
+                    dataIndex="actions"
+                    render={(_, record:IPost) => (
+                        <Space>
+                            <ShowButton 
+                                size="large"
+                                recordItemId={record.id}
+                            >View Item</ShowButton>
+                        </Space>
+                    )}
                 />
                 
             </Table>
