@@ -23,6 +23,9 @@ import dataProvider from "@refinedev/simple-rest";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 import { Header } from "./components/header";
 import { PostCreate, PostEdit, PostList, PostShow } from './pages';
+import { AntdInferencer } from "@refinedev/inferencer/antd";
+import { DashboardOutlined } from '@ant-design/icons';
+import { DashboardPage } from './pages/dashboard';
 
 
 
@@ -48,6 +51,14 @@ function App() {
                                 create: PostCreate,
                                 edit: PostEdit
                             },
+                            {
+                                name: "dashboard",
+                                list: "/",
+                                meta: {
+                                    label: "Dashboard",
+                                    icon: <DashboardOutlined />,
+                                },
+                            },
                         ]}
                         options={{
                             syncWithLocation: true,
@@ -65,7 +76,7 @@ function App() {
                                 }
                             >
                                 <Route index element={
-                                    <NavigateToResource resource="posts" />
+                                    <DashboardPage/>
                                 } />
                                 <Route path="/posts">
                                     <Route index element={<PostList />} />
@@ -75,7 +86,11 @@ function App() {
                                     />
                                     <Route
                                         path="edit/:id"
-                                        element={<PostEdit />}
+                                        element={<AntdInferencer />}
+                                    />
+                                    <Route
+                                        path="show/:id"
+                                        element={<PostShow />}
                                     />
                                 </Route>
                             </Route>
