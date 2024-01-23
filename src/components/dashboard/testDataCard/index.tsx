@@ -1,5 +1,5 @@
 import { Title } from "@refinedev/antd"
-import { Card, Typography } from "antd"
+import { Card, Col, Row, Typography } from "antd"
 import { DataWrapper, Footer, Header, HeaderNumbers, NewCustomersWrapper, SubHeader } from "./styled"
 import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 
@@ -12,22 +12,20 @@ export const TestDataCard: React.FC = () => {
                     <Text>Your Recycled Plastic</Text>
                 </SubHeader>
                 <Header>
-                    <Title>Test Data Metric</Title>
+                    <Title>200,000kg</Title>
                 </Header>
-                <Footer>
-                <HeaderNumbers>
-                        <Text strong>200,000kg</Text>
-                        <div>
-                                <Text strong>20%</Text>
+                <div>
+                    <Row gutter={[8, 8]}>
+                        <Col span={12}> <Text strong>20%</Text>
                                 {(20 ?? 0) > 0 ? (
                                     <CaretUpOutlined color="green" />
                                 ) : (
                                     <CaretDownOutlined color="red" />
                                 )}
-                            </div>
-                    </HeaderNumbers>
-                </Footer>
-                
+                        </Col>
+                        <Col span={12}><Text>This Month</Text></Col>
+                    </Row>
+                </div>
                 
             </DataWrapper> 
         </Card>

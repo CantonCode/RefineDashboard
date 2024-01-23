@@ -23,15 +23,13 @@ export const Header = styled.div`
 `;
 export const Footer = styled.div`
     display: flex;
-    justify-content: normal;
-    align-items: flex-start;
 `;
 
 
 
 export const HeaderNumbers = styled.div`
     font-size: 28px;
-    text-align: right;
+    
     line-height: 1.2;
 
     div {

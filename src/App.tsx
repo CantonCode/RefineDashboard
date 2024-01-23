@@ -41,7 +41,7 @@ function App() {
             <AntdApp>
                 <RefineKbarProvider>
                     <Refine
-                        dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
+                        dataProvider={dataProvider("https://api.finefoods.refine.dev")}
                         routerProvider={routerBindings}
                         resources={[
                             {
@@ -59,6 +59,10 @@ function App() {
                                     icon: <DashboardOutlined />,
                                 },
                             },
+                            {
+                                name: "orders",
+                                
+                            }
                         ]}
                         options={{
                             syncWithLocation: true,
@@ -78,7 +82,7 @@ function App() {
                                 <Route index element={
                                     <DashboardPage/>
                                 } />
-                                <Route path="/posts">
+                                {/* <Route path="/posts">
                                     <Route index element={<PostList />} />
                                     <Route
                                         path="create"
@@ -92,7 +96,7 @@ function App() {
                                         path="show/:id"
                                         element={<PostShow />}
                                     />
-                                </Route>
+                                </Route> */}
                             </Route>
                         </Routes>
                         <UnsavedChangesNotifier />
