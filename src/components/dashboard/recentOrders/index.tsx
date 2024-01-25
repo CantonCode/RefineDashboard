@@ -12,6 +12,7 @@ import {
 
 
 import { IOrder } from "../../../interfaces";
+import { useOrderContext } from "../../../hooks/useOrderContext";
 
 const { Text, Paragraph } = Typography;
 
@@ -37,6 +38,7 @@ export const RecentOrders: React.FC = () => {
     });
 
     const { show } = useNavigation();
+    const {dispatch}= useOrderContext();
 
     return (
         <Card>
@@ -48,7 +50,12 @@ export const RecentOrders: React.FC = () => {
                 rowKey="id"
                 onRow={(record, rowIndex) => {
                     return {
-                      onClick: (event) => {console.log(record)}, // click row
+                      onClick: (event) => {
+                        dispatch({
+                            type: "setOrder",
+                            payload: record,
+                        })
+                    }, // click row
                     };
                   }}
             >
