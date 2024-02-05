@@ -13,11 +13,13 @@ import {
 
 import { IOrder } from "../../../interfaces";
 import { useOrderContext } from "../../../hooks/useOrderContext";
+import { useState } from "react";
 
 const { Text, Paragraph } = Typography;
 
 export const RecentOrders: React.FC = () => {
     const t = useTranslate();
+    const [ selectedOrder, setSelectedOrder ] = useState<IOrder>()
     const { tableProps } = useTable<IOrder>({
         resource: "orders",
         initialSorter: [
@@ -40,9 +42,13 @@ export const RecentOrders: React.FC = () => {
     const { show } = useNavigation();
     const {dispatch}= useOrderContext();
 
+    function updateSelected(selected: IOrder){
+        console.log(selected.id)
+        setSelectedOrder(selected)
+    }
+
     return (
         <Card>
-            
             <Table
                 {...tableProps}
                 pagination={{ ...tableProps.pagination, simple: true }}
@@ -51,10 +57,8 @@ export const RecentOrders: React.FC = () => {
                 onRow={(record, rowIndex) => {
                     return {
                       onClick: (event) => {
-                        dispatch({
-                            type: "setOrder",
-                            payload: record,
-                        })
+                       console.log(record.id)
+                       updateSelected(record);
                     }, // click row
                     };
                   }}
