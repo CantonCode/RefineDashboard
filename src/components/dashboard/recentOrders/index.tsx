@@ -2,19 +2,22 @@ import { useState } from "react";
 import { IOrder } from "../../../interfaces"
 import { RecentOrdersTable } from "../recentOrdersTable";
 import { RecentOrdersQuickView } from "../recentOrdersQuickView";
-import { Col } from "antd";
+import { Col, Row } from "antd";
 
 
 
 export const RecentOrders: React.FC = () => {
-    const [sharedState, setSharedState] = useState('initial value');
+    const [sharedState, setSharedState] = useState<IOrder>();
 
     return(
-        <div>
+        <Row gutter={[16, 16]}>
             <Col xl={12} lg={24} md={24}>
-            <RecentOrdersTable sharedState={sharedState} setSharedState={setSharedState}/>  
+                <RecentOrdersTable sharedState={sharedState} setSharedState={setSharedState}/>  
             </Col>
-            <RecentOrdersQuickView sharedState={sharedState}/>
-        </div>
+
+            <Col xl={12} lg={24} md={24}>
+                <RecentOrdersQuickView sharedState={sharedState}/>
+            </Col>
+        </Row>
         )
 }

@@ -1,11 +1,12 @@
+import Card from "antd/es/card/Card"
 import { IOrder } from "../../../interfaces"
 
 
 
-export const RecentOrdersQuickView: React.FC<{sharedState: string}> = ({sharedState}) => {
+export const RecentOrdersQuickView: React.FC<{sharedState: IOrder}> = ({sharedState}) => {
     return(
-        <div>
-         Shared State:{sharedState}
-        </div>
+        <Card>
+             Shared State:{sharedState?.id}
+        </Card>
     )
 }

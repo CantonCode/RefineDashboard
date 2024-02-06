@@ -17,9 +17,8 @@ import { useState } from "react";
 
 const { Text, Paragraph } = Typography;
 
-export const RecentOrdersTable: React.FC<{sharedState:string,setSharedState:any}> = ({sharedState,setSharedState}) => {
+export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any}> = ({sharedState,setSharedState}) => {
     const t = useTranslate();
-    const [ selectedOrder, setSelectedOrder ] = useState<IOrder>()
     const { tableProps } = useTable<IOrder>({
         resource: "orders",
         initialSorter: [
@@ -40,16 +39,16 @@ export const RecentOrdersTable: React.FC<{sharedState:string,setSharedState:any}
     });
 
     const { show } = useNavigation();
-    const {dispatch}= useOrderContext();
+    
 
     function updateSelected(selected: IOrder){
         console.log(selected.id)
-        setSharedState(selected.id.toString())
+        setSharedState(selected)
     }
 
     return (
         <Card>
-            Shared state:{sharedState}
+            Shared state:{sharedState?.id}
             <Table
                 {...tableProps}
                 pagination={{ ...tableProps.pagination, simple: true }}
