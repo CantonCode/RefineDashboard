@@ -2,10 +2,10 @@ import { IOrder } from "../../../interfaces"
 
 
 
-export const RecentOrdersQuickView: React.FC = () => {
+export const RecentOrdersQuickView: React.FC<{sharedState: string}> = ({sharedState}) => {
     return(
         <div>
-            test
+         Shared State:{sharedState}
         </div>
     )
 }

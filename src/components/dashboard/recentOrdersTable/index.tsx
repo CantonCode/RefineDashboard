@@ -17,7 +17,7 @@ import { useState } from "react";
 
 const { Text, Paragraph } = Typography;
 
-export const RecentOrdersTable: React.FC = () => {
+export const RecentOrdersTable: React.FC<{sharedState:string,setSharedState:any}> = ({sharedState,setSharedState}) => {
     const t = useTranslate();
     const [ selectedOrder, setSelectedOrder ] = useState<IOrder>()
     const { tableProps } = useTable<IOrder>({
@@ -44,11 +44,12 @@ export const RecentOrdersTable: React.FC = () => {
 
     function updateSelected(selected: IOrder){
         console.log(selected.id)
-        setSelectedOrder(selected)
+        setSharedState(selected.id.toString())
     }
 
     return (
         <Card>
+            Shared state:{sharedState}
             <Table
                 {...tableProps}
                 pagination={{ ...tableProps.pagination, simple: true }}
