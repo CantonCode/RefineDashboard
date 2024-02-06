@@ -1,6 +1,6 @@
 import { Card, Col, Row } from "antd"
 import { TestDataCard } from "../../components/dashboard/testDataCard"
-import { RecentOrders } from "../../components/dashboard/recentOrders"
+import { RecentOrdersTable } from "../../components/dashboard/recentOrdersTable"
 import { RecentOrdersQuickView } from "../../components/dashboard/recentOrdersQuickView"
 
 export const DashboardPage: React.FC = () => {
@@ -24,7 +24,7 @@ export const DashboardPage: React.FC = () => {
 
             <Col xl={12} lg={24} md={24}>
             <h1 >Recent Orders</h1>
-                <RecentOrders/>
+                <RecentOrdersTable/>
             </Col>
             <RecentOrdersQuickView/>
         </Row>
