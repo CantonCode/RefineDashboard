@@ -26,6 +26,7 @@ import { PostCreate, PostEdit, PostList, PostShow } from './pages';
 import { AntdInferencer } from "@refinedev/inferencer/antd";
 import { DashboardOutlined } from '@ant-design/icons';
 import { DashboardPage } from './pages/dashboard';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 
 

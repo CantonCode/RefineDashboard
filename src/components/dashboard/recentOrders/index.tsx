@@ -15,7 +15,7 @@ export const RecentOrders: React.FC = () => {
                 <RecentOrdersTable sharedState={sharedState} setSharedState={setSharedState}/>  
             </Col>
 
-            <Col xl={12} lg={12} md={24}>
+            <Col xl={12} lg={12} md={24} style={{height:"100%"}}>
                 <RecentOrdersQuickView sharedState={sharedState}/>
             </Col>
         </Row>
