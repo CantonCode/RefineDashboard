@@ -22,8 +22,11 @@ export const DashboardPage: React.FC = () => {
                         </Col>
                 </Row>
             </Col>
-
+            <Col xs={24}>
             <h1 >Recent Orders</h1>
+            </Col>
+
+            
             <RecentOrders/>
         </Row>
 

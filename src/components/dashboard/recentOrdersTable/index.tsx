@@ -62,6 +62,7 @@ export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any}
                     }, // click row
                     };
                   }}
+                
             >
                 <Table.Column<IOrder>
                     key="avatar"
@@ -69,9 +70,9 @@ export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any}
                         <Avatar
                             size={{
                                 xs: 60,
-                                lg: 108,
-                                xl: 132,
-                                xxl: 144,
+                                lg: 60,
+                                xl: 60,
+                                xxl: 60,
                             }}
                             src={record?.products[0]?.images[0].url}
                         />
@@ -89,7 +90,6 @@ export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any}
                                     symbol: <span>...</span>,
                                 }}
                             >
-                                {record.products[0]?.description}
                             </Paragraph>
 
                             <OrderId

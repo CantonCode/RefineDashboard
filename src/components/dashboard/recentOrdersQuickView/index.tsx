@@ -7,6 +7,7 @@ export const RecentOrdersQuickView: React.FC<{sharedState: IOrder}> = ({sharedSt
     return(
         <Card>
              Shared State:{sharedState?.id}
+             
         </Card>
     )
 }
