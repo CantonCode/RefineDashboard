@@ -27,7 +27,7 @@ export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any}
                 order: "desc",
             },
         ],
-        initialPageSize: 4,
+        initialPageSize: 10,
         permanentFilter: [
             {
                 field: "status.text",
@@ -47,11 +47,12 @@ export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any}
     }
 
     return (
-        <Card>
+        <Card style={{height:"100%"}}>
             Shared state:{sharedState?.id}
             <Table
                 {...tableProps}
                 pagination={{ ...tableProps.pagination, simple: true }}
+                scroll={{y:"40vh"}}
                 showHeader={false}
                 rowKey="id"
                 onRow={(record, rowIndex) => {
@@ -65,6 +66,7 @@ export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any}
                 
             >
                 <Table.Column<IOrder>
+                    
                     key="avatar"
                     render={(_, record) => (
                         <Avatar

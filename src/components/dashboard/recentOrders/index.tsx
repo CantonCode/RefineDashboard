@@ -10,12 +10,12 @@ export const RecentOrders: React.FC = () => {
     const [sharedState, setSharedState] = useState<IOrder>();
 
     return(
-        <Row gutter={[16,16]} style={{width:"100%"}}>
-            <Col xl={12} lg={12} md={24}>
+        <Row gutter={[16,16]} style={{height:"50vh",width:'100%'}}>
+            <Col xl={12} lg={12} md={24} style={{height:"100%"}}>
                 <RecentOrdersTable sharedState={sharedState} setSharedState={setSharedState}/>  
             </Col>
 
-            <Col xl={12} lg={12} md={24} style={{height:"100%"}}>
+            <Col xl={12} lg={12} md={24} style={{height:"100%", width:"100%"}} >
                 <RecentOrdersQuickView sharedState={sharedState}/>
             </Col>
         </Row>
