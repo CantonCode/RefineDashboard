@@ -2,7 +2,8 @@ import { useState } from "react";
 import { IOrder } from "../../../interfaces"
 import { RecentOrdersTable } from "../recentOrdersTable";
 import { RecentOrdersQuickView } from "../recentOrdersQuickView";
-import { Col, Row } from "antd";
+import { Card, Col, Row } from "antd";
+import { Map } from "react-map-gl";
 
 
 
@@ -16,7 +17,7 @@ export const RecentOrders: React.FC = () => {
             </Col>
 
             <Col xl={12} lg={12} md={24} style={{height:"100%", width:"100%"}} >
-                <RecentOrdersQuickView sharedState={sharedState}/>
+                <RecentOrdersQuickView sharedState={sharedState}/>  
             </Col>
         </Row>
         )
