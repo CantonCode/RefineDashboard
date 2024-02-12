@@ -3,27 +3,11 @@ import { useEffect, useRef } from "react";
 
 import { ThemedTitleV2 } from "@refinedev/antd";
 import { Layout, Space, Typography } from "antd";
-import { gapi } from "gapi-script";
+
 import LoginButton from "../components/login/loginButton";
 
-
-// Todo: Update your Google Client ID here
-const GOOGLE_CLIENT_ID =
-    "291759158182-5e197e02fjl498hf85t64rq54ido4hq0.apps.googleusercontent.com";
-
 export const Login: React.FC = () => {
-    useEffect(() =>{
-        function start(){
-            gapi.client.init({
-                clientID:GOOGLE_CLIENT_ID,
-                scope:""
-            })
-        };
-        gapi.load('client:auth2',start);
-    });
-
-
-    return (
+     return (
         <Layout
             style={{
                 height: "100vh",

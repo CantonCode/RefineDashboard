@@ -2,6 +2,7 @@ import type { AuthProvider } from "@refinedev/core";
 import { parseJwt } from "./utils/parse-jwt";
 import axios from "axios";
 import { gapi } from "gapi-script";
+import { googleLogout } from "@react-oauth/google";
 
 const authProvider: AuthProvider = {
     login: async ({ token }: any) => {
@@ -51,6 +52,7 @@ const authProvider: AuthProvider = {
     if(token){
         localStorage.removeItem("token");
         axios.defaults.headers.common = {};
+        googleLogout();
     }
     
     return {

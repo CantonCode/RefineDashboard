@@ -53,7 +53,7 @@ function App() {
     return (
         <BrowserRouter  >
             <AntdApp>
-                <RefineKbarProvider>
+                
                     <Refine
                         authProvider={authProvider}
                         dataProvider={dataProvider("https://api.finefoods.refine.dev")}
@@ -188,7 +188,7 @@ function App() {
                         </Routes> */}
                         <UnsavedChangesNotifier />
                     </Refine>
-                </RefineKbarProvider>
+
             </AntdApp>
         </BrowserRouter>
     );

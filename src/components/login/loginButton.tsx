@@ -1,16 +1,13 @@
+import { GoogleLogin } from '@react-oauth/google';
 import { useLogin } from '@refinedev/core';
-import { GoogleLogin, GoogleLoginResponse } from 'react-google-login'
-
-const client_id = '291759158182-5e197e02fjl498hf85t64rq54ido4hq0.apps.googleusercontent.com'
 
 function LoginButton(){
     const { mutate: login } = useLogin<any>();
     
     const onSuccess = async(res:any)=>{
         console.log(res)
-        console.log(res.tokenId)
         if(res){
-            login({token:res.tokenId});
+            login({token:res.credential});
         }
     }
 
@@ -19,15 +16,14 @@ function LoginButton(){
     }
 
     return(
-        <div id="signInButton">
             <GoogleLogin
-            clientId={client_id}
-            buttonText='Login'
-            onSuccess={onSuccess}
-            onFailure={onFailure}
-            isSignedIn={true}
+            onSuccess={res =>{
+                onSuccess(res)
+            }}
+            onError={() => {
+                console.log('Login Failed');
+              }}
             />  
-        </div>
     )
 }
 
