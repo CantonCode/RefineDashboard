@@ -1,87 +1,65 @@
-
-import { AuthProvider } from "@refinedev/core/dist/interfaces";
+import type { AuthProvider } from "@refinedev/core";
 import { parseJwt } from "./utils/parse-jwt";
 import axios from "axios";
+import { gapi } from "gapi-script";
 
 const authProvider: AuthProvider = {
-        login: async ({ credential }: CredentialResponse) => {
-            const profileObj = credential ? parseJwt(credential) : null;
+    login: async ({ token }: any) => {
+        const profileObj = token ? parseJwt(token) : null;
 
-            if (profileObj) {
-                localStorage.setItem(
-                    "user",
-                    JSON.stringify({
-                        ...profileObj,
-                        avatar: profileObj.picture,
-                    }),
-                );
+        console.log(profileObj)
+        if (profileObj) {
+            localStorage.setItem(
+                "user",
+                JSON.stringify({
+                    ...profileObj,
+                    avatar: profileObj.picture,
+                }),
+            );
 
-                localStorage.setItem("token", `${credential}`);
-
-                return {
-                    success: true,
-                    redirectTo: "/",
-                };
-            }
-
-            return {
-                success: false,
-            };
-        },
-        logout: async () => {
-            const token = localStorage.getItem("token");
-
-            if (token && typeof window !== "undefined") {
-                localStorage.removeItem("token");
-                localStorage.removeItem("user");
-                axios.defaults.headers.common = {};
-                window.google?.accounts.id.revoke(token, () => {
-                    return {};
-                });
-            }
+            localStorage.setItem("token", `${token}`);
+        
 
             return {
                 success: true,
-                redirectTo: "/login",
+                redirectTo: "/",
             };
-        },
-        onError: async (error:any) => {
-            if (error.response?.status === 401) {
-                return {
-                    logout: true,
-                };
-            }
+        }
+    },
+    check: async () => {
+        const token = localStorage.getItem("token");
 
-            return { error };
-        },
-        check: async () => {
-            const token = localStorage.getItem("token");
-
-            if (token) {
-                return {
-                    authenticated: true,
-                };
-            }
-
+        if (token) {
             return {
-                authenticated: false,
-                error: {
-                    message: "Check failed",
-                    name: "Not authenticated",
-                },
-                logout: true,
-                redirectTo: "/login",
+                authenticated: true,
             };
-        },
-        // getPermissions: async () => null,
-        getIdentity: async () => {
-            const user = localStorage.getItem("user");
-            if (user) {
-                return JSON.parse(user);
-            }
+        }
 
-            return null;
-        },
+        return {
+            authenticated: false,
+            error: {
+                message: "Check failed",
+                name: "Not authenticated",
+            },
+            logout: true,
+            redirectTo: "/login",
+        };
+    },
+  logout: async (params: any) => {
+    const token = localStorage.getItem("token");
+
+    if(token){
+        localStorage.removeItem("token");
+        axios.defaults.headers.common = {};
+    }
+    
+    return {
+        success: true,
+        redirectTo:'/login'
     };
+  },
 
-    export default authProvider;
+  onError: async (params: any) => ({}),
+};
+
+export default authProvider;

@@ -84,9 +84,53 @@ function App() {
                             warnWhenUnsavedChanges: true,
                         }}
                         Layout={Layout}
-                        catchAll={<ErrorComponent />}
-                    >
+                        catchAll={<ErrorComponent />}>
                         <Routes>
+                            <Route
+                                element={
+                                    <Authenticated
+                                        key="authenticated-routes"
+                                        fallback={
+                                            <CatchAllNavigate to="/login" />
+                                        }
+                                    >
+                                        <ThemedLayoutV2>
+                                            <Outlet />
+                                        </ThemedLayoutV2>
+                                    </Authenticated>
+                                }>
+                                    
+                                <Route index element={
+                                    <DashboardPage/>
+                                } />
+                            </Route>
+
+                            <Route
+                                element={
+                                    <Authenticated
+                                        key="auth-pages"
+                                        fallback={<Outlet />}
+                                    >
+                                        <NavigateToResource resource="dashboard" />
+                                    </Authenticated>
+                                }
+                            >
+                                <Route path="/login" element={<Login />} />
+                            </Route>
+
+                            <Route
+                                element={
+                                    <Authenticated key="catch-all">
+                                        <ThemedLayoutV2>
+                                            <Outlet />
+                                        </ThemedLayoutV2>
+                                    </Authenticated>
+                                }
+                            >
+                                <Route path="*" element={<ErrorComponent />} />
+                            </Route>
+                        </Routes>
+                        {/* <Routes>
                             
                             <Route
                                element={
@@ -117,7 +161,7 @@ function App() {
                                 }
                             >
                                 <Route path="/login" element={<Login />} />
-                            </Route>
+                            </Route> */}
 
                                 
 
@@ -140,8 +184,8 @@ function App() {
                                         element={<PostShow />}
                                     />
                                 </Route> */}
-                            </Route>
-                        </Routes>
+                            {/* </Route>
+                        </Routes> */}
                         <UnsavedChangesNotifier />
                     </Refine>
                 </RefineKbarProvider>
