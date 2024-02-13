@@ -15,7 +15,10 @@ function LoginButton(){
         console.log("Login Failed:",res)
     }
 
+    
+
     return(
+        <div className='button-container'>
             <GoogleLogin
             onSuccess={res =>{
                 onSuccess(res)
@@ -23,7 +26,13 @@ function LoginButton(){
             onError={() => {
                 console.log('Login Failed');
               }}
+
+              shape='pill'
+              useOneTap
             />  
+
+        </div>
+            
     )
 }
 

@@ -5,7 +5,7 @@ import { gapi } from "gapi-script";
 import { googleLogout } from "@react-oauth/google";
 
 const authProvider: AuthProvider = {
-    login: async ({ token }: any) => {
+    login: async ({token}: any) => {
         const profileObj = token ? parseJwt(token) : null;
 
         console.log(profileObj)
