@@ -57,7 +57,6 @@ export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any,
 
     return (
         <Card style={{height:"100%"}}>
-            Shared state:{sharedState?.id}
             <Table
                 {...tableProps}
                 pagination={{ ...tableProps.pagination, simple: true }}
