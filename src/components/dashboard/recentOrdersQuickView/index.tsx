@@ -6,6 +6,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { Layer, Map, Marker, CircleLayer, Source } from "react-map-gl";
 import { FeatureIdentifier, LineLayer } from "mapbox-gl";
 import { FeatureCollection } from "geojson";
+import { useEffect, useRef } from "react";
 
 
 
@@ -56,20 +57,31 @@ export const RecentOrdersQuickView: React.FC<{ sharedState: IOrder, cords: any }
           'circle-color': '#ff0000'
         }
       };
+
+      const mapRef = useRef(null)
+
+      useEffect(() => {
+        // Your code that you want to run whenever the info stat is changed
+        console.log("CORDS CHANGED")
+        mapRef.current?.flyTo({ center: [cords.longitude,cords.latitude] })
+    },[cords])
+
     
       
     return (
         <div style={{ height: "100%", width: "100%", backgroundColor: "white", padding: "2rem", borderRadius: '0.4rem' }}>
             <Map
+                ref={mapRef}
                 mapboxAccessToken="pk.eyJ1IjoiY2FudG9uY29kZSIsImEiOiJjbHNiZ2Nibm8wMjFrMm10ZDZzcXI2OGo4In0.kPqfrcmL29ztsk5zVoTkhg"
                 initialViewState={{
-                    longitude: -122.4,
-                    latitude: 37.8,
+                    longitude: cords.longitude,
+                    latitude: cords.latitude,
                     zoom: 3.5
                 }}
                 mapStyle="mapbox://styles/mapbox/streets-v9"
-                longitude={cords.longitude}
-                latitude={cords.latitude}
+                // longitude={cords.longitude}
+                // latitude={cords.latitude}
+                
             >  
             <Source id="my-data-2" type="geojson" data={geojson2}>
                 <Layer {...circleStyle2} />

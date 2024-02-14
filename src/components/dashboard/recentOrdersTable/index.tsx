@@ -54,6 +54,7 @@ export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any,
             }
         )
     }
+    
 
     return (
         <Card style={{height:"100%"}}>
