@@ -17,7 +17,7 @@ import { useState } from "react";
 
 const { Text, Paragraph } = Typography;
 
-export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any}> = ({sharedState,setSharedState}) => {
+export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any,setCords:any}> = ({sharedState,setSharedState,setCords}) => {
     const t = useTranslate();
     const { tableProps } = useTable<IOrder>({
         resource: "orders",
@@ -46,13 +46,22 @@ export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any}
         setSharedState(selected)
     }
 
+    function updateCords(){
+        setCords(
+            {
+                longitude: Math.floor(Math.random() * (180 - (-180) + 1)) + (-180),
+                latitude: Math.floor(Math.random() * (90 - (-90) + 1)) + (-90),
+            }
+        )
+    }
+
     return (
         <Card style={{height:"100%"}}>
             Shared state:{sharedState?.id}
             <Table
                 {...tableProps}
                 pagination={{ ...tableProps.pagination, simple: true }}
-                scroll={{y:"40vh"}}
+                scroll={{y:"30vh"}}
                 showHeader={false}
                 rowKey="id"
                 onRow={(record, rowIndex) => {
@@ -60,6 +69,7 @@ export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any}
                       onClick: (event) => {
                        console.log(record.id)
                        updateSelected(record);
+                       updateCords();
                     }, // click row
                     };
                   }}

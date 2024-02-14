@@ -6,7 +6,9 @@ import { RecentOrders } from "../../components/dashboard/recentOrders"
 
 export const DashboardPage: React.FC = () => {
     return (
-        <Row gutter={[16, 16]}>
+        <div style={{
+            height:'100vh'}}>
+            <Row gutter={[16, 16]} style={{padding:'2rem'}}>
             <Col md={24}>
                 <Row gutter={[16, 16]}>
                         <Col xl={8} lg={24} md={24} sm={24} xs={24}>
@@ -29,6 +31,9 @@ export const DashboardPage: React.FC = () => {
             
             <RecentOrders/>
         </Row>
+
+        </div>
+        
 
         
     )
