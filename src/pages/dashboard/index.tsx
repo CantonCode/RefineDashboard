@@ -3,6 +3,7 @@ import { TestDataCard } from "../../components/dashboard/testDataCard"
 import { RecentOrdersTable } from "../../components/dashboard/recentOrdersTable"
 import { RecentOrdersQuickView } from "../../components/dashboard/recentOrdersQuickView"
 import { RecentOrders } from "../../components/dashboard/recentOrders"
+import { ImpactProjects } from "../../components/dashboard/impactProjects"
 
 export const DashboardPage: React.FC = () => {
     return (
@@ -27,9 +28,15 @@ export const DashboardPage: React.FC = () => {
             <Col xs={24}>
             <h1 >Recent Orders</h1>
             </Col>
-
-            
             <RecentOrders/>
+
+            <Col xs={24}>
+            <h1 >Your Impact Projects</h1>
+            </Col>
+
+            <ImpactProjects/>
+
+
         </Row>
 
         </div>
