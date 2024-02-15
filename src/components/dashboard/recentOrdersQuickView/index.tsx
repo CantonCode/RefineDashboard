@@ -60,8 +60,7 @@ export const RecentOrdersQuickView: React.FC<{ sharedState: IOrder, cords: any }
 
       const mapRef = useRef(null)
 
-      useEffect(() => {
-        // Your code that you want to run whenever the info stat is changed
+      useEffect(() => {// Your code that you want to run whenever the info stat is changed
         console.log("CORDS CHANGED")
         mapRef.current?.flyTo({ center: [cords.longitude,cords.latitude] })
     },[cords])

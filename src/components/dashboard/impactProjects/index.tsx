@@ -8,7 +8,7 @@ export const ImpactProjects: React.FC = () => {
     
     return(
         <div>
-            This is the imapact Projects
+            This is the imapact Projects page
 
             <ImpactProjectCard></ImpactProjectCard>
             <ImpactProjectCard></ImpactProjectCard>
