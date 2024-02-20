@@ -10,6 +10,8 @@ export const ImpactProjects: React.FC = () => {
         <div>
             This is the imapact Projects page
 
+            impact cards
+
             <ImpactProjectCard></ImpactProjectCard>
             <ImpactProjectCard></ImpactProjectCard>
         </div>
