@@ -76,6 +76,10 @@ function App() {
                             },
                             {
                                 name: "orders",
+                                list: PostList,
+                                show: PostShow,
+                                create: PostCreate,
+                                edit: PostEdit
                                 
                             }
                         ]}
