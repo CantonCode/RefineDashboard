@@ -1,0 +1,64 @@
+{
+    "dashboard_data": [
+            {
+                "userID": "1",
+                "metrics": [
+                    {
+                        "name": "Recycling Efficiency",
+                        "amount": 70,
+                        "unit": "%"
+                    },
+                    {
+                        "name": "Recycled Materials",
+                        "amount": 500,
+                        "unit": "lbs"
+                    },
+                    {
+                        "name": "Waste Reduction",
+                        "amount": 20,
+                        "unit": "%"
+                    }
+                ]
+            },
+            {
+                "userID": "2",
+                "metrics": [
+                    {
+                        "name": "Eco-Friendly Practices",
+                        "amount": 90,
+                        "unit": "%"
+                    },
+                    {
+                        "name": "Recycled Water Usage",
+                        "amount": 200,
+                        "unit": "gal"
+                    },
+                    {
+                        "name": "Carbon Footprint",
+                        "amount": 1000,
+                        "unit": "lbs"
+                    }
+                ]
+            },
+            {
+                "userID": "3",
+                "metrics": [
+                    {
+                        "name": "Sustainability Index",
+                        "amount": 80,
+                        "unit": "%"
+                    },
+                    {
+                        "name": "Recycled Energy Usage",
+                        "amount": 300,
+                        "unit": "kWh"
+                    },
+                    {
+                        "name": "Landfill Diversion",
+                        "amount": 50,
+                        "unit": "%"
+                    }
+                ]
+            }
+        ]
+    }
