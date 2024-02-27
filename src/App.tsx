@@ -63,13 +63,13 @@ function App() {
                         
                         routerProvider={routerProvider}
                         resources={[
-                            {
-                                name: "posts",
-                                list: PostList,
-                                show: PostShow,
-                                create: PostCreate,
-                                edit: PostEdit
-                            },
+                            // {
+                            //     name: "posts",
+                            //     list: PostList,
+                            //     show: PostShow,
+                            //     create: PostCreate,
+                            //     edit: PostEdit
+                            // },
                             {
                                 name: "dashboard",
                                 list: "/",
@@ -78,14 +78,14 @@ function App() {
                                     icon: <DashboardOutlined />,
                                 },
                             },
-                            {
-                                name: "orders",
-                                list: PostList,
-                                show: PostShow,
-                                create: PostCreate,
-                                edit: PostEdit
+                            // {
+                            //     name: "orders",
+                            //     list: PostList,
+                            //     show: PostShow,
+                            //     create: PostCreate,
+                            //     edit: PostEdit
                                 
-                            }
+                            // }
                         ]}
                         options={{
                             syncWithLocation: true,
