@@ -56,7 +56,11 @@ function App() {
                 
                     <Refine
                         authProvider={authProvider}
-                        dataProvider={dataProvider("https://api.finefoods.refine.dev")}
+                        dataProvider={{
+                            default:dataProvider("https://api.finefoods.refine.dev"),
+                            jsonapi:dataProvider(" http://localhost:3000")
+                        }}
+                        
                         routerProvider={routerProvider}
                         resources={[
                             {
