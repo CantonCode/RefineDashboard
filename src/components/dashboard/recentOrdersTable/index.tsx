@@ -19,7 +19,11 @@ const { Text, Paragraph } = Typography;
 
 export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any,setCords:any}> = ({sharedState,setSharedState,setCords}) => {
     const t = useTranslate();
+
+        // dataProviderName: "jsonapi",
+        // filters: [{ field: "userID", operator: "eq", value: "3" }],
     const { tableProps } = useTable<IOrder>({
+        dataProviderName: "jsonapi",
         resource: "orders",
         initialSorter: [
             {
@@ -119,9 +123,6 @@ export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any,
                     key="summary"
                     render={(_, record) => (
                         <Space direction="vertical">
-                            <Title
-                                strong
-                            >{`${record.courier.name} ${record.courier.surname}`}</Title>
                             <Text>{record.adress.text}</Text>
                         </Space>
                     )}
