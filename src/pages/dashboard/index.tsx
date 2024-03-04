@@ -14,20 +14,22 @@ interface Metric {
 export const DashboardPage: React.FC = () => {
     return (
         <div style={{
-            height: '100vh'
+          
         }}>
-            <Row gutter={[16, 16]} style={{ padding: '2rem' }}>
+            <Row gutter={[16, 16]} >
                 <Col md={24}>
                     <Metrics />
                 </Col>
-                <Col xs={24}>
+                <Col xs={24} style={{height:'40vh',overflow:'clip'}}>
                     <h1 >Recent Orders</h1>
+                    <RecentOrders />
                 </Col>
-                <RecentOrders />
+                
                 <Col xs={24}>
                     <h1 >Your Impact Projects</h1>
+                    <ImpactProjects />
                 </Col>
-                <ImpactProjects />
+                
             </Row>
         </div>
 

@@ -26,8 +26,6 @@ export const Metrics: React.FC = () => {
                     <MetricDataCard {...metric} />
                 </Col>
             ))}
-
-
         </Row>
     )
 }

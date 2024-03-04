@@ -11,46 +11,7 @@ export const ImpactProjectCard: React.FC = () => {
 
         <Card
         size="default"
-        actions={[
-          <div
-            key="1"
-            style={{
-              width: "100%",
-              height: "100px",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "0 16px",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "6px",
-              }}
-            >
-              <Text size="xs">2000KG</Text>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "6px",
-              }}
-            >
-              <Text size="xs">75% of Goal</Text>
-              <Tooltip
-                title="TOOTIP TITLE"
-                key="THOIS IS THE KEU"
-              >
-                
-              </Tooltip>
-            </div>
-          </div>,
-        ]}
+        style={{height:'100%',}}
       >
         <div
           style={{
@@ -60,14 +21,17 @@ export const ImpactProjectCard: React.FC = () => {
             position: "relative",
           }}
         >
-         
+
+        <div>
+          <img style={{objectFit:"contain",width:'100%',height:'20vh'}} src="https://app.plastiks.io/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcHNsIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--37f4d9bbfeda515a0af388e10d8c476c4378fe19/IMG_1809.JPG"></img>
+        </div>
           
           <Text
             strong
-            size="md"
             ellipsis={{ tooltip: "HIIIII" }}
             style={{
               marginTop: "12px",
+              fontSize:"25px"
             }}
           >
             Impact Proejct 1
@@ -75,7 +39,7 @@ export const ImpactProjectCard: React.FC = () => {
   
           <Space
             direction="vertical"
-            size={0}
+            size={2}
             style={{
               marginTop: "8px",
               alignItems: "center",
