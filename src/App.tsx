@@ -13,9 +13,11 @@ import {
     , ThemedLayoutV2
     , ThemedSiderV2,
     Layout,
-    ThemedTitleV2
+    ThemedTitleV2,
+    ThemedHeaderV2
 } from '@refinedev/antd';
 import "@refinedev/antd/dist/reset.css";
+import { Header } from './components/header';
 
 import { App as AntdApp } from "antd"
 import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
@@ -27,7 +29,7 @@ import routerProvider, {
 } from "@refinedev/react-router-v6";
 import dataProvider from "@refinedev/simple-rest";
 import { ColorModeContextProvider } from "./contexts/color-mode";
-import { Header } from "./components/header";
+
 import { PostCreate, PostEdit, PostList, PostShow } from './pages';
 import { AntdInferencer } from "@refinedev/inferencer/antd";
 import { DashboardOutlined } from '@ant-design/icons';
@@ -104,6 +106,7 @@ function App() {
                                         }
                                     >
                                         <ThemedLayoutV2
+                                        //  Header={Header}
                                          Title={({ collapsed }) => (
                                             <ThemedTitleV2
                                               // collapsed is a boolean value that indicates whether the <Sidebar> is collapsed or not
@@ -112,7 +115,9 @@ function App() {
                                               text="Ocean Recycling"
                                             />
                                           )}
+                                          
                                         >
+
                                             <Outlet />
                                         </ThemedLayoutV2>
                                     </Authenticated>
