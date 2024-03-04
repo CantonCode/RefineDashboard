@@ -35,6 +35,7 @@ import authProvider from "./authProvider";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { Login } from './pages/login';
 import axios from 'axios';
+import 'react-multi-carousel/lib/styles.css';
 
 const axiosInstance = axios.create();
 

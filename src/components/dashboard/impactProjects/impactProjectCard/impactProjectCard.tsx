@@ -10,8 +10,10 @@ export const ImpactProjectCard: React.FC = () => {
         // </Card>
 
         <Card
-        size="default"
-        style={{height:'100%',}}
+        hoverable
+        style={{height:'95%',margin:'1rem'}}
+        cover={ <img style={{width:'100%',height:"50%"}} src="https://app.plastiks.io/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcHNsIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--37f4d9bbfeda515a0af388e10d8c476c4378fe19/IMG_1809.JPG"></img>
+      }
       >
         <div
           style={{
@@ -22,9 +24,9 @@ export const ImpactProjectCard: React.FC = () => {
           }}
         >
 
-        <div>
+        {/* <div>
           <img style={{objectFit:"contain",width:'100%',height:'20vh'}} src="https://app.plastiks.io/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcHNsIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--37f4d9bbfeda515a0af388e10d8c476c4378fe19/IMG_1809.JPG"></img>
-        </div>
+        </div> */}
           
           <Text
             strong

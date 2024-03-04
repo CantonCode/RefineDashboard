@@ -15,6 +15,7 @@ export const DashboardPage: React.FC = () => {
     return (
         <div style={{
           
+            
         }}>
             <Row gutter={[16, 16]} >
                 <Col md={24}>
