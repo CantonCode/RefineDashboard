@@ -15,13 +15,13 @@ export const DashboardPage: React.FC = () => {
     return (
         <div style={{
           
-            
+
         }}>
             <Row gutter={[16, 16]} >
                 <Col md={24}>
                     <Metrics />
                 </Col>
-                <Col xs={24} style={{height:'40vh',overflow:'clip'}}>
+                <Col xs={24} style={{overflow:'clip'}} >
                     <h1 >Recent Orders</h1>
                     <RecentOrders />
                 </Col>

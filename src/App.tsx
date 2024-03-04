@@ -12,7 +12,8 @@ import {
     , useNotificationProvider
     , ThemedLayoutV2
     , ThemedSiderV2,
-    Layout
+    Layout,
+    ThemedTitleV2
 } from '@refinedev/antd';
 import "@refinedev/antd/dist/reset.css";
 
@@ -102,7 +103,16 @@ function App() {
                                             <CatchAllNavigate to="/login" />
                                         }
                                     >
-                                        <ThemedLayoutV2>
+                                        <ThemedLayoutV2
+                                         Title={({ collapsed }) => (
+                                            <ThemedTitleV2
+                                              // collapsed is a boolean value that indicates whether the <Sidebar> is collapsed or not
+                                              collapsed={collapsed}
+                                              icon={collapsed ? <img src='https://cdn-icons-png.flaticon.com/512/3061/3061214.png' height={30} width={30}></img>:<img src='https://cdn-icons-png.flaticon.com/512/3061/3061214.png' height={20} width={20}></img>}
+                                              text="Ocean Recycling"
+                                            />
+                                          )}
+                                        >
                                             <Outlet />
                                         </ThemedLayoutV2>
                                     </Authenticated>
