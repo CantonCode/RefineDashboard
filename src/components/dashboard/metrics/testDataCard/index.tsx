@@ -1,12 +1,12 @@
 import { Title } from "@refinedev/antd"
 import { Card, Col, Row, Typography } from "antd"
-import { DataWrapper, Footer, Header, HeaderNumbers, NewCustomersWrapper, SubHeader } from "./styled"
+import { DataWrapper, Footer, Header, HeaderNumbers, SubHeader } from "./styled"
 import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 
 export const MetricDataCard: React.FC = (metric:any) => {
     const { Text, Title } = Typography;
     return(
-        <Card>
+        <Card style={{border:'1px solid black'}}>
             <DataWrapper>
                 <SubHeader>
                     <Text>{metric.name}</Text>

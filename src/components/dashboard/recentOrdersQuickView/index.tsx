@@ -68,7 +68,7 @@ export const RecentOrdersQuickView: React.FC<{ sharedState: IOrder, cords: any }
     
       
     return (
-        <div style={{ height: "100%", width: "100%", backgroundColor: "white", padding: "2rem", borderRadius: '0.4rem' }}>
+        <div style={{ height: "95%", width: "100%", backgroundColor: "white", padding: "1rem", borderRadius: '0.4rem',border:'1px solid black' }}>
             <Map
                 ref={mapRef}
                 mapboxAccessToken="pk.eyJ1IjoiY2FudG9uY29kZSIsImEiOiJjbHNiZ2Nibm8wMjFrMm10ZDZzcXI2OGo4In0.kPqfrcmL29ztsk5zVoTkhg"
