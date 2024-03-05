@@ -70,8 +70,20 @@
                         "name": "School Collection Initive",
                         "location": "Bali, Indonesia",
                         "subject": "Primary school ocean recycling funding",
-                        "image":"https://app.plastiks.io/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcHNsIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--37f4d9bbfeda515a0af388e10d8c476c4378fe19/IMG_1809.JPG"
-                    }             
+                        "image":"https://oceanconservancy.org/wp-content/uploads/2018/04/Screen-Shot-2018-04-18-at-12.43.14-PM.png"
+                    },
+                    {
+                        "name": "Fishing Net Recylcing Project",
+                        "location": "Scotland",
+                        "subject": "Reducing Plastic in the fishing industry",
+                        "image":"https://www.scottishpower.com/userfiles/news/amp-images/revolutionary_fishing_net_recycling_project_to_help_reduce_plastic_and_protect_the_planet.jpg"
+                    }  ,
+                    {
+                        "name": "Local Beach Clean Initative",
+                        "location": "Kerry, Ireland ",
+                        "subject": "Funding beach clean equipment",
+                        "image":"https://eia-international.org/wp-content/uploads/plastic-on-beach.jpg"
+                    }                    
                 ]
             }
         ],
