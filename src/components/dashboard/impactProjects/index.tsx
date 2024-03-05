@@ -4,6 +4,7 @@ import { Col, Row } from "antd";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./carousel.css";
+import { useList } from "@refinedev/core";
 
 
 
@@ -11,6 +12,15 @@ import "./carousel.css";
 
 
 export const ImpactProjects: React.FC = () => {
+
+    const { data } = useList({
+        resource: "dashboard_data",
+        dataProviderName: "jsonapi",
+        filters: [{ field: "userID", operator: "eq", value: "3" }],
+    });
+    let projects = []
+    projects = data?.data[0].projects;
+    console.log(projects)
 
     const responsive = {
         superLargeDesktop: {
@@ -32,25 +42,33 @@ export const ImpactProjects: React.FC = () => {
         }
     };
 
-    return (
-        <div style={{display:'flex', justifyContent:'center',alignContent:'center'}}>
-            <div style={{width:"85%"}}>
-                <Carousel
-                    containerClass="carousel-1"
-                    showDots={false}
-                    responsive={responsive}
-                    draggable={false}
-                    >
+    if(projects){
+        return (
+            <div style={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
+    
+                
+                <div style={{ width: "85%" }}>
+                    <Carousel
+                        containerClass="carousel-1"
+                        showDots={false}
+                        responsive={responsive}
+                        draggable={false}
+                    >  
                         
-                    <ImpactProjectCard></ImpactProjectCard>
-                    <ImpactProjectCard></ImpactProjectCard>
-                    <ImpactProjectCard></ImpactProjectCard>
-                    <ImpactProjectCard></ImpactProjectCard>
-                    <ImpactProjectCard></ImpactProjectCard>
-                    <ImpactProjectCard></ImpactProjectCard>
-                </Carousel>  
-        </div>
-        </div>
-        
-    )
+                        {projects?.map((project:any) => (
+                        <ImpactProjectCard {...project}></ImpactProjectCard>
+                ))}
+    
+                        
+                    </Carousel>
+                </div>
+            </div>
+    
+        )
+    }
+    else{
+        return null
+    }
+
+    
 }

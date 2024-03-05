@@ -2,8 +2,9 @@ import { Title } from "@refinedev/antd"
 import { Card, Col, Row, Space, Tooltip, Typography } from "antd"
 import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 
-export const ImpactProjectCard: React.FC = () => {
+export const ImpactProjectCard: React.FC = (project:any) => {
     const { Text, Title } = Typography;
+    const image = project.image
     return(
         // <Card>
         //     <Title>ImpactProject Card</Title>
@@ -13,7 +14,7 @@ export const ImpactProjectCard: React.FC = () => {
         hoverable
         bordered
         style={{height:'95%',margin:'1rem',border:"1px solid black"}}
-        cover={ <img style={{width:'100%',height:"50%",padding:'1px'}} src="https://app.plastiks.io/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcHNsIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--37f4d9bbfeda515a0af388e10d8c476c4378fe19/IMG_1809.JPG"></img>
+        cover={ <img style={{width:'100%',height:"50%",padding:'1px'}} src={image}></img>
       }
       >
         <div
@@ -37,7 +38,7 @@ export const ImpactProjectCard: React.FC = () => {
               fontSize:"25px"
             }}
           >
-            Impact Proejct 1
+            {project.name}
           </Text>
   
           <Space
@@ -48,7 +49,7 @@ export const ImpactProjectCard: React.FC = () => {
               alignItems: "center",
             }}
           >
-            <Text type="secondary">Indonesia</Text>
+            <Text type="secondary">{project.location}</Text>
             <Text
               strong
               size="md"
@@ -56,7 +57,7 @@ export const ImpactProjectCard: React.FC = () => {
                 marginTop: "12px",
               }}
             >
-              Raw Ocean Plastic Collection
+              {project.subject}
               <Space>
                 
             </Space>

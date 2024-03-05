@@ -58,11 +58,23 @@
                         "amount": 50,
                         "unit": "%"
                     }
+                ],
+                "projects": [
+                    {
+                        "name": "Local Boat Engines",
+                        "location": "Lombok, Indonesia",
+                        "subject": "Providing More Coverage Area",
+                        "image":"https://app.plastiks.io/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcHNsIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--37f4d9bbfeda515a0af388e10d8c476c4378fe19/IMG_1809.JPG"
+                    },
+                    {
+                        "name": "School Collection Initive",
+                        "location": "Bali, Indonesia",
+                        "subject": "Primary school ocean recycling funding",
+                        "image":"https://app.plastiks.io/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcHNsIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--37f4d9bbfeda515a0af388e10d8c476c4378fe19/IMG_1809.JPG"
+                    }             
                 ]
             }
         ],
-    
-
         
             "orders": [
                 {
