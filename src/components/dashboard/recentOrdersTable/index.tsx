@@ -12,8 +12,6 @@ import {
 
 
 import { IOrder } from "../../../interfaces";
-import { useOrderContext } from "../../../hooks/useOrderContext";
-import { useState } from "react";
 
 const { Text, Paragraph } = Typography;
 

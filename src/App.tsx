@@ -54,14 +54,14 @@ axiosInstance.interceptors.request.use((config) => {
 
 function App() {
     return (
-        <BrowserRouter  >
+        <BrowserRouter basename={'/RefineDashboard/'}  >
             <AntdApp>
                 
                     <Refine
                         authProvider={authProvider}
                         dataProvider={{
                             default:dataProvider("https://api.finefoods.refine.dev"),
-                            jsonapi:dataProvider(" http://localhost:3000")
+                            jsonapi:dataProvider("https://myjsonserver-j7xm.onrender.com/api/")
                         }}
                         
                         routerProvider={routerProvider}

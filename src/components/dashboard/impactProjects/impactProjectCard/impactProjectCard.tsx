@@ -52,7 +52,6 @@ export const ImpactProjectCard: React.FC = (project:any) => {
             <Text type="secondary">{project.location}</Text>
             <Text
               strong
-              size="md"
               style={{
                 marginTop: "12px",
               }}

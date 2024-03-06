@@ -1,5 +1,5 @@
 import { Typography } from "antd";
-import{ IPost, ICategory } from "../../interfaces";
+import{ ICategory } from "../../interfaces";
 import { useOne, useShow } from "@refinedev/core";
 import { Show } from "@refinedev/antd";
 

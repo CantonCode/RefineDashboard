@@ -1,7 +1,4 @@
 import { Card, Col, Row } from "antd"
-import { TestDataCard } from "../../components/dashboard/metrics/testDataCard"
-import { RecentOrdersTable } from "../../components/dashboard/recentOrdersTable"
-import { RecentOrdersQuickView } from "../../components/dashboard/recentOrdersQuickView"
 import { RecentOrders } from "../../components/dashboard/recentOrders"
 import { ImpactProjects } from "../../components/dashboard/impactProjects"
 import { useList, useMany, useOne } from "@refinedev/core"
