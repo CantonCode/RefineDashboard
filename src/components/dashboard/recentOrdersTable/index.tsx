@@ -65,7 +65,7 @@ export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any,
             <Table
                 {...tableProps}
                 pagination={{ ...tableProps.pagination, simple: true }}
-                scroll={{y:"30vh"}}
+                scroll={{y:"25vh"}}
                 showHeader={false}
                 rowKey="id"
                 onRow={(record, rowIndex) => {
