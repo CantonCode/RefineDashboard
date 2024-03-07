@@ -21,12 +21,15 @@ export const Login: React.FC = () => {
 
         >
 
-            <Card style={{ height: '40vh', width: '40vw', alignItems: 'center', display: 'flex', justifyContent: 'center' }}>
-                <Space direction="vertical" align="center" size="large">
-                    <div style={{ padding: '10px' }}>
-                        <h1>Honest Ocean</h1>
+            <Card 
+            style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', margin:'2.5rem',padding:'10%' }}>
+                <Space direction="vertical" align="center">
+                    <div style={{ padding: '10px',textAlign:'center' }}>
+                        <img src='https://cdn-icons-png.flaticon.com/512/8044/8044414.png' height='50%' width='50%'></img>
+                        <h2>Please Login below</h2>
+                        
                     </div>
-                    <LoginButton />
+                    <LoginButton/>
                 </Space>
             </Card>
         </Layout>
