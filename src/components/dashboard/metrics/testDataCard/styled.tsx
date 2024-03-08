@@ -6,8 +6,8 @@ export const DataWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
 
-    @media screen and (max-width: 576px) {
-        height: 212px;
+    @media screen and (max-width: 400px) {
+        height: 5rem;
     }
 `;
 export const SubHeader = styled.div`
