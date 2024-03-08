@@ -1,10 +1,12 @@
 import { LeftOutlined, CloseCircleOutlined, ShopOutlined } from "@ant-design/icons";
 import { ListButton } from "@refinedev/antd";
 import { useShow } from "@refinedev/core";
-import { Button, Card, Col, Divider, Flex, List, Row, Skeleton, Space, Typography } from "antd";
+import { Avatar, Button, Card, Col, Divider, Flex, List, Row, Skeleton, Space, Typography } from "antd";
 
 export const OrderShow: React.FC = () => {
-    const { queryResult } = useShow();
+    const { queryResult } = useShow({
+        dataProviderName: "jsonapi",
+    });
     const { data, isLoading } = queryResult;
     const record = data?.data;
     console.log(record)
@@ -27,7 +29,7 @@ export const OrderShow: React.FC = () => {
                     </Flex>
                 </Col>
 
-                <Col xl={9} lg={24} md={24} sm={24} xs={24} >
+                <Col xl={9} lg={12} md={12} sm={18} xs={24} >
                     <Card
                         headStyle={{
                             backgroundColor: "mode === light" ? "#FAFAFA" : "#1F1F1F",
@@ -45,7 +47,22 @@ export const OrderShow: React.FC = () => {
                             </Space>
                         }>
 
+                        <Flex gap={16} style={{display:'flex',justifyContent:'center',margin:'1rem'}} >
+                        <Avatar
+                            size={{
+                                xs: 130,
+                                sm:130,
+                                md:130,
+                                lg: 130,
+                                xl: 130,
+                                xxl: 190,
+                            }}
+                            src={record?.products[0]?.images[0].url}
+                        />
+                        </Flex>
+
                         <Flex gap={8}>
+                        
                             <Space
                                 style={{
                                     width: "120px",
