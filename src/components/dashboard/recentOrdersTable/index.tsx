@@ -64,8 +64,8 @@ export const RecentOrdersTable: React.FC<{ sharedState: IOrder, setSharedState: 
             <Table
                 {...tableProps}
                 pagination={{ ...tableProps.pagination, simple: true }}
-                scroll={{ y: "25vh" }}
-                showHeader={false}
+                scroll={{x:true,y:'20vh'}}
+                
                 rowKey="id"
                 onRow={(record, rowIndex) => {
                     return {
@@ -157,7 +157,7 @@ export const RecentOrdersTable: React.FC<{ sharedState: IOrder, setSharedState: 
                     align="center"
                 />
                 <Table.Column
-                    title={t("table.actions")}
+                    title='View'
                     key="actions"
                     fixed="right"
                     align="center"
