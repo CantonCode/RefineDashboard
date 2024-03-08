@@ -1,6 +1,6 @@
 import { useNavigation, useTranslate } from "@refinedev/core";
 import { useTable } from "@refinedev/antd";
-import { Typography, Table, Avatar, Space, Tag, Card } from "antd";
+import { Typography, Table, Avatar, Space, Tag, Card, Button } from "antd";
 import {
     RecentOrdersColumn,
     Price,
@@ -12,14 +12,15 @@ import {
 
 
 import { IOrder } from "../../../interfaces";
+import { EyeOutlined } from "@ant-design/icons";
 
 const { Text, Paragraph } = Typography;
 
-export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any,setCords:any}> = ({sharedState,setSharedState,setCords}) => {
+export const RecentOrdersTable: React.FC<{ sharedState: IOrder, setSharedState: any, setCords: any }> = ({ sharedState, setSharedState, setCords }) => {
     const t = useTranslate();
 
-        // dataProviderName: "jsonapi",
-        // filters: [{ field: "userID", operator: "eq", value: "3" }],
+    // dataProviderName: "jsonapi",
+    // filters: [{ field: "userID", operator: "eq", value: "3" }],
     const { tableProps } = useTable<IOrder>({
         dataProviderName: "jsonapi",
         resource: "orders",
@@ -41,14 +42,14 @@ export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any,
     });
 
     const { show } = useNavigation();
-    
 
-    function updateSelected(selected: IOrder){
+
+    function updateSelected(selected: IOrder) {
         console.log(selected.id)
         setSharedState(selected)
     }
 
-    function updateCords(){
+    function updateCords() {
         setCords(
             {
                 longitude: Math.floor(Math.random() * (180 - (-180) + 1)) + (-180),
@@ -56,29 +57,29 @@ export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any,
             }
         )
     }
-    
+
 
     return (
-        <Card style={{height:"95%",border:'1px solid black'}}>
+        <Card style={{ height: "95%", border: '1px solid black' }}>
             <Table
                 {...tableProps}
                 pagination={{ ...tableProps.pagination, simple: true }}
-                scroll={{y:"25vh"}}
+                scroll={{ y: "25vh" }}
                 showHeader={false}
                 rowKey="id"
                 onRow={(record, rowIndex) => {
                     return {
-                      onClick: (event) => {
-                       console.log(record.id)
-                       updateSelected(record);
-                       updateCords();
-                    }, // click row
+                        onClick: (event) => {
+                            console.log(record.id)
+                            updateSelected(record);
+                            updateCords();
+                        }, // click row
                     };
-                  }}
-                
+                }}
+
             >
                 <Table.Column<IOrder>
-                    
+
                     key="avatar"
                     render={(_, record) => (
                         <Avatar
@@ -155,7 +156,25 @@ export const RecentOrdersTable: React.FC<{sharedState:IOrder,setSharedState:any,
                     key="actions"
                     align="center"
                 />
+                <Table.Column
+                    title={t("table.actions")}
+                    key="actions"
+                    fixed="right"
+                    align="center"
+                    render={(_, record: IOrder) => {
+                        return (
+                            <Button
+                                icon={<EyeOutlined />}
+                                onClick={() => {
+                                    show("orders", record.id);
+                                }}
+                            />
+                        );
+                    }}
+                />
             </Table>
+
+
 
         </Card>
 

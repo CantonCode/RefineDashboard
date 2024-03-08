@@ -39,6 +39,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { Login } from './pages/login';
 import axios from 'axios';
 import 'react-multi-carousel/lib/styles.css';
+import { OrderShow } from './pages/orders';
 
 const axiosInstance = axios.create();
 
@@ -56,105 +57,111 @@ function App() {
     return (
         <BrowserRouter basename={'/RefineDashboard/'}  >
             <AntdApp>
-                
-                    <Refine
-                        authProvider={authProvider}
-                        dataProvider={{
-                            default:dataProvider("https://api.finefoods.refine.dev"),
-                            jsonapi:dataProvider("https://myjsonserver-j7xm.onrender.com/api/")
-                        }}
-                        
-                        routerProvider={routerProvider}
-                        resources={[
-                            // {
-                            //     name: "posts",
-                            //     list: PostList,
-                            //     show: PostShow,
-                            //     create: PostCreate,
-                            //     edit: PostEdit
-                            // },
-                            {
-                                name: "dashboard",
-                                list: "/",
-                                meta: {
-                                    label: "Dashboard",
-                                    icon: <DashboardOutlined />,
-                                },
+
+                <Refine
+                    authProvider={authProvider}
+                    dataProvider={{
+                        default: dataProvider("https://api.finefoods.refine.dev"),
+                        jsonapi: dataProvider("https://myjsonserver-j7xm.onrender.com/api/")
+                    }}
+
+                    routerProvider={routerProvider}
+                    resources={[
+                        // {
+                        //     name: "posts",
+                        //     list: PostList,
+                        //     show: PostShow,
+                        //     create: PostCreate,
+                        //     edit: PostEdit
+                        // },
+                        {
+                            name: "dashboard",
+                            list: "/",
+                            meta: {
+                                label: "Dashboard",
+                                icon: <DashboardOutlined />,
                             },
-                            // {
-                            //     name: "orders",
-                            //     list: PostList,
-                            //     show: PostShow,
-                            //     create: PostCreate,
-                            //     edit: PostEdit
-                                
-                            // }
-                        ]}
-                        options={{
-                            syncWithLocation: true,
-                            warnWhenUnsavedChanges: true,
-                        }}
-                        Layout={Layout}
-                        catchAll={<ErrorComponent />}>
-                        <Routes>
-                            <Route
-                                element={
-                                    <Authenticated
-                                        key="authenticated-routes"
-                                        fallback={
-                                            <CatchAllNavigate to="/login" />
-                                        }
-                                    >
-                                        <ThemedLayoutV2
+                        },
+                        {
+                            name: "orders",
+                            list:'/',
+                            show: "/orders/:id",
+
+                        }
+                    ]}
+                    options={{
+                        syncWithLocation: true,
+                        warnWhenUnsavedChanges: true,
+                    }}
+                    Layout={Layout}
+                    catchAll={<ErrorComponent />}>
+                    <Routes>
+                        <Route
+                            element={
+                                <Authenticated
+                                    key="authenticated-routes"
+                                    fallback={
+                                        <CatchAllNavigate to="/login" />
+                                    }
+                                >
+                                    <ThemedLayoutV2
                                         //  Header={Header}
-                                         Title={({ collapsed }) => (
+                                        Title={({ collapsed }) => (
                                             <ThemedTitleV2
-                                              // collapsed is a boolean value that indicates whether the <Sidebar> is collapsed or not
-                                              collapsed={collapsed}
-                                              icon={collapsed ? <img src='https://cdn-icons-png.flaticon.com/512/3061/3061214.png' height={30} width={30}></img>:<img src='https://cdn-icons-png.flaticon.com/512/3061/3061214.png' height={20} width={20}></img>}
-                                              text="Ocean Recycling"
+                                                // collapsed is a boolean value that indicates whether the <Sidebar> is collapsed or not
+                                                collapsed={collapsed}
+                                                icon={collapsed ? <img src='https://cdn-icons-png.flaticon.com/512/3061/3061214.png' height={30} width={30}></img> : <img src='https://cdn-icons-png.flaticon.com/512/3061/3061214.png' height={20} width={20}></img>}
+                                                text="Ocean Recycling"
                                             />
-                                          )}
-                                          
-                                        >
+                                        )}
 
-                                            <Outlet />
-                                        </ThemedLayoutV2>
-                                    </Authenticated>
-                                }>
-                                    
-                                <Route index element={
-                                    <DashboardPage/>
-                                } />
-                            </Route>
-
-                            <Route
-                                element={
-                                    <Authenticated
-                                        key="auth-pages"
-                                        fallback={<Outlet />}
                                     >
-                                        <NavigateToResource resource="dashboard" />
-                                    </Authenticated>
-                                }
-                            >
-                                <Route path="/login" element={<Login />} />
-                                
-                            </Route>
 
-                            <Route
-                                element={
-                                    <Authenticated key="catch-all">
-                                        <ThemedLayoutV2>
-                                            <Outlet />
-                                        </ThemedLayoutV2>
-                                    </Authenticated>
-                                }
-                            >
-                                <Route path="*" element={<ErrorComponent />} />
-                            </Route>
-                        </Routes>
-                        {/* <Routes>
+                                        <Outlet />
+                                    </ThemedLayoutV2>
+                                </Authenticated>
+                            }>
+
+                            <Route index element={
+                                <DashboardPage />
+                            } />
+
+                             <Route path="/orders">
+                            <Route index element={null} />
+                            <Route path=":id" element={<OrderShow />} />
+                        </Route>
+                        </Route>
+
+                        <Route
+                            element={
+                                <Authenticated
+                                    key="auth-pages"
+                                    fallback={<Outlet />}
+                                >
+                                    <NavigateToResource resource="dashboard" />
+                                </Authenticated>
+                            }
+                        >
+                            <Route path="/login" element={<Login />} />
+
+
+                        </Route>
+
+                       
+
+                        <Route
+                            element={
+                                <Authenticated key="catch-all">
+                                    <ThemedLayoutV2>
+                                        <Outlet />
+                                    </ThemedLayoutV2>
+                                </Authenticated>
+                            }
+                        >
+                            <Route path="*" element={<ErrorComponent />} />
+                        </Route>
+                    </Routes>
+                    {/* <Routes>
                             
                             <Route
                                element={
@@ -187,13 +194,13 @@ function App() {
                                 <Route path="/login" element={<Login />} />
                             </Route> */}
 
-                                
 
 
 
 
-                                
-                                {/* <Route path="/posts">
+
+
+                    {/* <Route path="/posts">
                                     <Route index element={<PostList />} />
                                     <Route
                                         path="create"
@@ -208,10 +215,10 @@ function App() {
                                         element={<PostShow />}
                                     />
                                 </Route> */}
-                            {/* </Route>
+                    {/* </Route>
                         </Routes> */}
-                        <UnsavedChangesNotifier />
-                    </Refine>
+                    <UnsavedChangesNotifier />
+                </Refine>
 
             </AntdApp>
         </BrowserRouter>
