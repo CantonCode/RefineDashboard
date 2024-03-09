@@ -120,10 +120,11 @@ export const RecentOrdersTable: React.FC<{ sharedState: IOrder, setSharedState: 
                 />
                 <RecentOrdersColumn
                     key="summary"
+                    width={"100%"}
                     render={(_, record) => (
-                        <Space direction="vertical">
-                            <Text>{record.adress.text}</Text>
-                        </Space>
+                        
+                            <Text style={{wordBreak:'normal'}}>{record.adress.text}</Text>
+                       
                     )}
                 />
                 <Table.Column<IOrder>

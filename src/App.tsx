@@ -84,7 +84,6 @@ function App() {
                         },
                         {
                             name: "orders",
-                            list:'/',
                             show: "/orders/:id",
 
                         }

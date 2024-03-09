@@ -17,7 +17,7 @@ export const OrderShow: React.FC = () => {
     return (
         <div style={{ margin: '0rem' }}>
             <Flex>
-                <ListButton icon={<LeftOutlined />}>Go Back</ListButton>
+                <Button icon={<LeftOutlined />} >Go Back</Button>
             </Flex>
             <Divider />
 
