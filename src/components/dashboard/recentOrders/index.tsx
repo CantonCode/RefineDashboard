@@ -18,12 +18,12 @@ export const RecentOrders: React.FC = () => {
 
 
     return(
-        <Row gutter={[16,16]} style={{height:"35vh",width:'100%'}}>
-            <Col xl={12} lg={12} md={24} sm={24} style={{height:"100%"}}>
+        <Row gutter={[16,16]} style={{height:"100%",width:'100%',padding:'1rem'}}>
+            <Col xl={12} lg={12} md={24} sm={24} style={{height:"40vh"}}>
                 <RecentOrdersTable sharedState={sharedState} setSharedState={setSharedState} setCords={setCords}/>  
             </Col>
 
-            <Col xl={12} lg={12} md={24} sm={24} style={{height:"100%", width:"100%"}} >
+            <Col xl={12} lg={12} md={24} sm={24} style={{height:"42vh", width:"100%"}} >
                 <RecentOrdersQuickView sharedState={sharedState} cords={coords}/>  
             </Col>
         </Row>

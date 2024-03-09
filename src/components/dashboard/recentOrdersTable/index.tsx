@@ -60,12 +60,12 @@ export const RecentOrdersTable: React.FC<{ sharedState: IOrder, setSharedState: 
 
 
     return (
-        <Card style={{ height: "95%", border: '1px solid black' }}>
+        <Card bodyStyle={{padding:'0px'}} style={{ height: "100%", border: '1px solid black',padding:'0px' }}>
+            
             <Table
                 {...tableProps}
                 pagination={{ ...tableProps.pagination, simple: true }}
-                scroll={{x:true,y:'20vh'}}
-                
+                scroll={{x:true,y:'25vh'}}
                 rowKey="id"
                 onRow={(record, rowIndex) => {
                     return {
@@ -94,6 +94,7 @@ export const RecentOrdersTable: React.FC<{ sharedState: IOrder, setSharedState: 
                     )}
                 />
                 <RecentOrdersColumn
+                    title='No.'
                     key="summary"
                     render={(_, record) => (
                         <TitleWrapper>
@@ -120,14 +121,15 @@ export const RecentOrdersTable: React.FC<{ sharedState: IOrder, setSharedState: 
                 />
                 <RecentOrdersColumn
                     key="summary"
-                    width={"100%"}
+                   title="Address"
                     render={(_, record) => (
-                        
+                        <Space direction="vertical">
                             <Text style={{wordBreak:'normal'}}>{record.adress.text}</Text>
-                       
+                        </Space>
                     )}
                 />
                 <Table.Column<IOrder>
+                    title="Price"
                     dataIndex="amount"
                     render={(value, record) => (
                         <Space
@@ -152,11 +154,7 @@ export const RecentOrdersTable: React.FC<{ sharedState: IOrder, setSharedState: 
                         </Space>
                     )}
                 />
-                <Table.Column<IOrder>
-                    fixed="right"
-                    key="actions"
-                    align="center"
-                />
+                
                 <Table.Column
                     title='View'
                     key="actions"

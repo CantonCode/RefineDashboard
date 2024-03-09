@@ -2,8 +2,10 @@ import { LeftOutlined, CloseCircleOutlined, ShopOutlined } from "@ant-design/ico
 import { ListButton } from "@refinedev/antd";
 import { useShow } from "@refinedev/core";
 import { Avatar, Button, Card, Col, Divider, Flex, List, Row, Skeleton, Space, Typography } from "antd";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const OrderShow: React.FC = () => {
+    const navigate = useNavigate();
     const { queryResult } = useShow({
         dataProviderName: "jsonapi",
     });
@@ -17,7 +19,7 @@ export const OrderShow: React.FC = () => {
     return (
         <div style={{ margin: '0rem' }}>
             <Flex>
-                <Button icon={<LeftOutlined />} >Go Back</Button>
+                <Button icon={<LeftOutlined />} onClick={()=> navigate("/")}>Go Back</Button>
             </Flex>
             <Divider />
 
