@@ -65,7 +65,7 @@ export const RecentOrdersTable: React.FC<{ sharedState: IOrder, setSharedState: 
             <Table
                 {...tableProps}
                 pagination={{ ...tableProps.pagination, simple: true }}
-                scroll={{x:true,y:'25vh'}}
+                scroll={{x:true,y:'28vh'}}
                 rowKey="id"
                 onRow={(record, rowIndex) => {
                     return {
@@ -110,9 +110,9 @@ export const RecentOrdersTable: React.FC<{ sharedState: IOrder, setSharedState: 
 
                             <OrderId
                                 strong
-                                onClick={() => {
-                                    show("orders", record.id);
-                                }}
+                                // onClick={() => {
+                                //     show("orders", record.id);
+                                // }}
                             >
                                 #{record.orderNumber}
                             </OrderId>
@@ -172,9 +172,6 @@ export const RecentOrdersTable: React.FC<{ sharedState: IOrder, setSharedState: 
                     }}
                 />
             </Table>
-
-
-
         </Card>
 
     );

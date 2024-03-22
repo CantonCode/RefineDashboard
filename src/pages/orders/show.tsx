@@ -1,7 +1,7 @@
 import { LeftOutlined, CloseCircleOutlined, ShopOutlined } from "@ant-design/icons";
 import { ListButton } from "@refinedev/antd";
 import { useShow } from "@refinedev/core";
-import { Avatar, Button, Card, Col, Divider, Flex, List, Row, Skeleton, Space, Typography } from "antd";
+import { Avatar, Button, Card, Col, Divider, Flex, List, Row, Skeleton, Space, Spin, Typography } from "antd";
 import { Navigate, useNavigate } from "react-router-dom";
 
 export const OrderShow: React.FC = () => {
@@ -11,19 +11,21 @@ export const OrderShow: React.FC = () => {
     });
     const { data, isLoading } = queryResult;
     const record = data?.data;
+
     console.log(record)
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <div style={{display:'flex',alignItems:'center', height:'100vh',justifyContent:'center'}}><Spin size="large" /></div>;
     }
 
     return (
-        <div style={{ margin: '0rem' }}>
+        <div style={{marginTop: '15vh' }}>
             <Flex>
                 <Button icon={<LeftOutlined />} onClick={()=> navigate("/")}>Go Back</Button>
             </Flex>
             <Divider />
 
             <Row gutter={[16, 16]} style={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
+                
                 <Col xl={24} lg={24} md={24} sm={24} xs={24}>
                     <Flex gap={16} vertical style={{marginInline:'2rem'}}>
                         {/* <OrderProducts order={record} /> */}
