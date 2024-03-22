@@ -1,3 +1,14 @@
+##This Project
+
+This application is a personal project inspired from the recycling industry. Built using React and Refine framework, user login via google auth api and are greeted with a Dashboard style page. Users can see personalized metrics, their recent orders, order details view and their recycling projects which they have donated money to.
+
+Uses React concepts such as Hooks and State along with an organised folder architecture.
+
+Using Json server hosted on Render to store the data for now.
+
+Plan to build a NodeJS backend in the future 
+
+
 # example-dashboard
 
 <div align="center" style="margin: 30px;">
